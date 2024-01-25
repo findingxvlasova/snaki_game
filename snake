@@ -10,9 +10,9 @@ RIGHT = 0
 class Snake:
 
     def __init__(self):
-        self.segments = []
-        self.create_snake()
-        self.head = self.segments[0]
+        self.segments = []    # create list of segments
+        self.create_snake()    # init funk that creates snake
+        self.head = self.segments[0]    # head index (init after create, because otherwise its gonna fail since segments list dont exist yet)
 
     def create_snake(self):
         for position in STARTING_POSITIONS:
