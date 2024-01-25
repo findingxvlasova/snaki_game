@@ -12,10 +12,10 @@ class Food(Turtle):
         self.speed("fastest")
         x = random.randint(-280, 280)
         y = random.randint(-280, 280)
-        self.goto(x, y)
+        self.goto(x, y)    # gives a random place for food on the play board
         self.refresh()
 
-    def refresh(self):
+    def refresh(self):    # refreshes place on the play board when food is 'eaten'
         random_x = random.randint(-280, 280)
         random_y = random.randint(-280, 280)
         self.goto(random_x, random_y)
