@@ -5,26 +5,31 @@ from scoreboard import Scoreboard
 import time
 
 screen = Screen()
-screen.setup(width=600, height=600)
-screen.bgcolor("black")
-screen.title("My Snake Game")
-screen.tracer(0)
+screen.setup(width=600, height=600)    # create canvas -300 to 300 x and y
+screen.bgcolor("black")    # made it black
+screen.title("Snake game")    # give it a name
+screen.tracer(0)   # sets delay
 
-snake = Snake()
-food = Food()
-scoreboard = Scoreboard()
+snake = Snake()    # create a snake
+food = Food()   # create food
+scoreboard = Scoreboard()    # create scoreboard
 
-screen.listen()
+user_choice = screen.textinput("Are you ready to play?", "Are you ready?")
+if user_choice.lower() == "yes":
+    game_is_on = True
+else:
+    game_is_on = False
+
+screen.listen()    # screen starts to listen to user actions
 screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
-game_is_on = True
 while game_is_on:
-    screen.update()
+    screen.update()   # screen updates
     time.sleep(0.1)
-    snake.move()
+    snake.move()    # snake starts to move
 
     #Detect collision with food.
     if snake.head.distance(food) < 15:
